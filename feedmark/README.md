@@ -2,8 +2,8 @@ The image contains feedmark ( https://catseye.tc/node/Feedmark ) and its depende
 
 Example of use:
 
-    docker pull catseye/feedmark:0.10
-    docker run --user $(id -u):$(id -g) -i -t -v "${PWD}:/mnt/host" catseye/feedmark:0.10 \
+    docker pull catseye/feedmark:0.11
+    docker run --user $(id -u):$(id -g) -i -t -v "${PWD}:/mnt/host" catseye/feedmark:0.11 \
         feedmark "eg/Ancient Llama Sightings.md" --output-atom feed.xml
 
 This Docker image is fairly experimental. Please don't lean on it too heavily.
