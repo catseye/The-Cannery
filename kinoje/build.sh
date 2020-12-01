@@ -1,6 +1,4 @@
 #!/bin/sh
 
-SOURCE=kinoje
-IMAGENAME=kinoje
-VERSION=0.6
+. settings.sh
 . ../build-docker-image.sh

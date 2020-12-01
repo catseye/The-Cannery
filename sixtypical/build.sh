@@ -1,6 +1,4 @@
 #!/bin/sh
 
-SOURCE=SixtyPical
-IMAGENAME=sixtypical
-VERSION=0.20
+. settings.sh
 . ../build-docker-image.sh

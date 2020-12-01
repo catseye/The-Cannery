@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # Common script for building a Docker image.
 # Intended to be called from something else that sets up some env vars first
 # (using Falderal as an example here, obviously change these as necessary):

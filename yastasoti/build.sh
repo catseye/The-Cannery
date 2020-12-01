@@ -1,6 +1,4 @@
 #!/bin/sh
 
-SOURCE=yastasoti
-IMAGENAME=yastasoti
-VERSION=0.4
+. settings.sh
 . ../build-docker-image.sh

@@ -1,6 +1,4 @@
 #!/bin/sh
 
-SOURCE=Falderal
-IMAGENAME=falderal
-VERSION=0.13
+. settings.sh
 . ../build-docker-image.sh
