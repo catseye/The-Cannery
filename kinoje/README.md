@@ -1,9 +1,9 @@
-The image contains kinoje ( https://catseye.tc/node/kinoje ), its dependencies (Python 3.5.7-slim-stretch, PyYaml, Jinja2, tqdm), and the programs it's commonly used with (POV-Ray, ImageMagick, rsvg-convert, and ffmpeg).
+The image contains kinoje ( https://catseye.tc/node/kinoje ), its dependencies (Python 3.6-slim-stretch, PyYaml, Jinja2, tqdm), and the programs it's commonly used with (POV-Ray, ImageMagick, rsvg-convert, and ffmpeg).
 
 Example of use:
 
-    docker pull catseye/kinoje:0.6
-    docker run --user $(id -u):$(id -g) -i -t -v "${PWD}:/mnt/host" catseye/kinoje:0.6 \
+    docker pull catseye/kinoje:0.7
+    docker run --user $(id -u):$(id -g) -i -t -v "${PWD}:/mnt/host" catseye/kinoje:0.7 \
         kinoje eg/moebius.yaml -o moebius.mp4
 
 Notes:

@@ -1,4 +1,4 @@
-FROM python:3.5.7-slim-stretch
+FROM python:3.6-slim-stretch
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y povray povray-includes ffmpeg imagemagick librsvg2-bin
 RUN mkdir /mnt/host

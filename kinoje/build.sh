@@ -1,4 +1,4 @@
 #!/bin/sh
 
-. settings.sh
+. ./settings.sh
 . ../build-docker-image.sh
