@@ -1,0 +1,4 @@
+#!/bin/sh
+
+IMAGE=catseye/hastec:0.5.5.1-ce1
+docker run --user $(id -u):$(id -g) -i -t -v "${PWD}:/src" $IMAGE hastec $*
