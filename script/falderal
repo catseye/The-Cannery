@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Often doesn't work very well, because falderal inside the container executes
+# executables from outside the container, which expect things like shared libraries
+# that they can't find inside the container.  Still, there it is.
+
+IMAGE=catseye/falderal:0.13
+
+# Note that $* isn't sufficient because it doesn't retain quotes.
+docker run --user $(id -u):$(id -g) -i -t -v "${PWD}:/mnt/host" $IMAGE falderal $*
