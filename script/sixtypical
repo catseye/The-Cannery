@@ -1,0 +1,5 @@
+#!/bin/sh
+
+IMAGE=catseye/sixtypical:0.19
+#if sudo docker inspect --type=image "$IMAGE" >/dev/null 2>&1; then
+docker run --user $(id -u):$(id -g) -i -t -v "${PWD}:/mnt/host" $IMAGE sixtypical $*
