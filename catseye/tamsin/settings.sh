@@ -1,0 +1,3 @@
+SOURCE=Tamsin
+IMAGENAME=tamsin
+VERSION=0.5
