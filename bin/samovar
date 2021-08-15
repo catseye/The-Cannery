@@ -1,0 +1,9 @@
+#!/bin/sh
+
+ORGNAME=catseye
+EXENAME=samovar
+VERSION=0.4
+IMAGE=$ORGNAME/$EXENAME:$VERSION
+
+# Note that $* isn't sufficient because it doesn't retain quotes.
+docker run --user $(id -u):$(id -g) -i -t -v "${PWD}:/mnt/host" $IMAGE $EXENAME $*

@@ -1,0 +1,3 @@
+SOURCE=Samovar
+IMAGENAME=samovar
+VERSION=0.4
