@@ -2,7 +2,7 @@
 
 ORGNAME=catseye
 EXENAME=sixtypical
-VERSION=0.19
+VERSION=0.20
 IMAGE=$ORGNAME/$EXENAME:$VERSION
 
 #if sudo docker inspect --type=image "$IMAGE" >/dev/null 2>&1; then
