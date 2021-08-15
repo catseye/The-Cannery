@@ -1,10 +1,8 @@
 # Common script for building a Docker image.
-# Intended to be called from something else that sets up some env vars first
-# (using Falderal as an example here, obviously change these as necessary):
+# Usage: build-docker-image.sh <dir-containing-docker-config>
 
-# SOURCE=Falderal
-# IMAGENAME=falderal
-# VERSION=0.13
+CONFIG_DIR=$1
+. $CONFIG_DIR/settings.sh
 
 shelf_pwd() {
     name="$1"
@@ -26,7 +24,7 @@ else
 fi
 
 ORGNAME=catseye
-DOCKERFILE=`pwd`/Dockerfile
+DOCKERFILE=$CONFIG_DIR/Dockerfile
 
 find ${SRCDIR} -name '*.pyc' -exec rm {} \;
 find ${SRCDIR} -name '__pycache__' -exec rm -r {} \;
