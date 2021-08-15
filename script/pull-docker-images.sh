@@ -5,9 +5,9 @@
 # https://www.docker.com/blog/scaling-dockers-business-to-serve-millions-more-developers-storage/
 # It's also just a handy way to get all of these Docker images onto your machine at once.
 
-for DIR in *; do
+for DIR in $1/*; do
   if [ -d $DIR ]; then
     . $DIR/settings.sh
-    docker pull catseye/$DIR:$VERSION
+    docker pull $DIR:$VERSION
   fi
 done
