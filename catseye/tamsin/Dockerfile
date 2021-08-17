@@ -1,5 +1,5 @@
-FROM qzkc/python2.7:v2
-#RUN apt-get update && apt-get upgrade -y
+FROM bitnami/python:2.7.18-prod
+RUN apt-get update && apt-get upgrade -y
 RUN mkdir /mnt/host
 WORKDIR /usr/src/app
 COPY bin ./bin
