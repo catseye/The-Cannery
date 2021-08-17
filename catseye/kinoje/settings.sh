@@ -1,3 +1,4 @@
+ORGNAME=catseye
 SOURCE=kinoje
-IMAGENAME=kinoje
+EXENAME=kinoje
 VERSION=0.7

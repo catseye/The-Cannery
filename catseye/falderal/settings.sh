@@ -1,3 +1,4 @@
+ORGNAME=catseye
 SOURCE=Falderal
-IMAGENAME=falderal
+EXENAME=falderal
 VERSION=0.13

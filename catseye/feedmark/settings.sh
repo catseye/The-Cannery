@@ -1,3 +1,4 @@
+ORGNAME=catseye
 SOURCE=Feedmark
-IMAGENAME=feedmark
+EXENAME=feedmark
 VERSION=0.11

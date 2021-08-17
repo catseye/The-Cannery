@@ -1,10 +1,11 @@
 #!/bin/sh
 
-IMAGENAME=hastec
+EXENAME=hastec
 VERSION=0.5.5.1-ce1
 
 ORGNAME=catseye
 DOCKERFILE=`pwd`/Dockerfile
+IMAGENAME=$EXENAME
 
 docker container prune -f
 docker rmi ${ORGNAME}/${IMAGENAME}:${VERSION}

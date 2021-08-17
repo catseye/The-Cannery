@@ -25,6 +25,7 @@ fi
 
 ORGNAME=catseye
 DOCKERFILE=$CONFIG_DIR/Dockerfile
+IMAGENAME=$EXENAME
 
 find ${SRCDIR} -name '*.pyc' -exec rm {} \;
 find ${SRCDIR} -name '__pycache__' -exec rm -r {} \;

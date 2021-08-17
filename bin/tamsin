@@ -1,8 +1,10 @@
 #!/bin/sh
 
-ORGNAME=catseye
 EXENAME=tamsin
-VERSION=0.5
+
+SCRIPTPATH=`realpath $0`
+SCRIPTDIR=`dirname $SCRIPTPATH`
+. $SCRIPTDIR/../catseye/$EXENAME/settings.sh
 IMAGE=$ORGNAME/$EXENAME:$VERSION
 
 # Note that $* isn't sufficient because it doesn't retain quotes.

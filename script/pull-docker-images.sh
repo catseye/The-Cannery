@@ -8,6 +8,7 @@
 for DIR in $1/*; do
   if [ -d $DIR ]; then
     . $DIR/settings.sh
-    docker pull $DIR:$VERSION
+    IMAGE=$ORGNAME/$EXENAME:$VERSION
+    docker pull $IMAGE
   fi
 done

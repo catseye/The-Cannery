@@ -4,9 +4,11 @@
 # executables from outside the container, which expect things like shared libraries
 # that they can't find inside the container.  Still, there it is.
 
-ORGNAME=catseye
 EXENAME=falderal
-VERSION=0.13
+
+SCRIPTPATH=`realpath $0`
+SCRIPTDIR=`dirname $SCRIPTPATH`
+. $SCRIPTDIR/../catseye/$EXENAME/settings.sh
 IMAGE=$ORGNAME/$EXENAME:$VERSION
 
 # Note that $* isn't sufficient because it doesn't retain quotes.

@@ -1,3 +1,4 @@
+ORGNAME=catseye
 SOURCE=SixtyPical
-IMAGENAME=sixtypical
+EXENAME=sixtypical
 VERSION=0.20

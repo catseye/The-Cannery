@@ -1,3 +1,4 @@
+ORGNAME=catseye
 SOURCE=yastasoti
-IMAGENAME=yastasoti
+EXENAME=yastasoti
 VERSION=0.4
