@@ -5,9 +5,4 @@ EXENAME=hastec
 VERSION=0.5.5.1-ce1
 IMAGE=$ORGNAME/$EXENAME:$VERSION
 
-# We would like to run it as the current user, like so:
-#    docker run --user $(id -u):$(id -g) -i -t -v "${PWD}:/src" $IMAGE hastec $*
-# but if we do, it has trouble accessing its own files inside the container.
-# So we run it as normal, and try to tolerate the fact that any files it creates
-# will be owned by root.
-docker run -i -t -v "${PWD}:/src" $IMAGE hastec $*
+docker run --user $(id -u):$(id -g) -e HOME=/root -i -t -v "${PWD}:/src" $IMAGE hastec $*
