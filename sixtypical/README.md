@@ -2,9 +2,9 @@ The image contains [sixtypical](https://catseye.tc/node/SixtyPical) and its depe
 
 Example of use:
 
-    docker pull catseye/sixtypical:0.19
-    docker run --user $(id -u):$(id -g) -i -t -v "${PWD}:/mnt/host" catseye/sixtypical:0.19 \
-        sixtypical eg/funrun.60p -o funrun.bin
+    docker pull catseye/sixtypical:0.20
+    docker run --user $(id -u):$(id -g) -i -t -v "${PWD}:/mnt/host" catseye/sixtypical:0.20 \
+            sixtypical eg/funrun.60p -o funrun.bin
 
 This Docker image is fairly experimental. Please don't lean on it too heavily.
 
