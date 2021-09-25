@@ -2,7 +2,8 @@ The Cannery
 ===========
 
 Experimental
-| _See also:_ [containerized-hastec](https://github.com/catseye/containerized-hastec)
+| _See also:_ [The Platform](https://github.com/catseye/The-Platform)
+∘ [containerized-hastec](https://github.com/catseye/containerized-hastec)
 
 - - - -
 
