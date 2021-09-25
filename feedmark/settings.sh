@@ -1,3 +1,0 @@
-SOURCE=Feedmark
-IMAGENAME=feedmark
-VERSION=0.11

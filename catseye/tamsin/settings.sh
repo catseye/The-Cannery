@@ -1,0 +1,4 @@
+ORGNAME=catseye
+SOURCE=Tamsin
+EXENAME=tamsin
+VERSION=0.5

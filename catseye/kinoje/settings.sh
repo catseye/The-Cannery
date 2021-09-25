@@ -1,0 +1,4 @@
+ORGNAME=catseye
+SOURCE=kinoje
+EXENAME=kinoje
+VERSION=0.7

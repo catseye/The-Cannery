@@ -1,3 +1,0 @@
-SOURCE=Falderal
-IMAGENAME=falderal
-VERSION=0.13

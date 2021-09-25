@@ -1,0 +1,4 @@
+ORGNAME=catseye
+SOURCE=Samovar
+EXENAME=samovar
+VERSION=0.4
