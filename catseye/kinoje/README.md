@@ -2,8 +2,8 @@ The image contains kinoje ( https://catseye.tc/node/kinoje ), its dependencies (
 
 Example of use:
 
-    docker pull catseye/kinoje:0.7
-    docker run --user $(id -u):$(id -g) -i -t -v "${PWD}:/mnt/host" catseye/kinoje:0.7 \
+    docker pull catseye/kinoje:0.8
+    docker run --user $(id -u):$(id -g) -i -t -v "${PWD}:/mnt/host" catseye/kinoje:0.8 \
         kinoje eg/moebius.yaml -o moebius.mp4
 
 Notes:
