@@ -1,0 +1,4 @@
+ORGNAME=catseye
+SOURCE=Sbeezg
+EXENAME=sbeezg
+VERSION=1.0-2014.0819
