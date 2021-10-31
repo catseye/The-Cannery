@@ -36,10 +36,16 @@ IMAGENAME=$EXENAME
 
 SRCDIR=/tmp/$EXENAME
 
-echo "Cloning ${GITDIR} to ${SRCDIR}..."
+echo "Cloning ${GITDIR} to ${SRCDIR} ..."
 
 rm -rf ${SRCDIR}
 (cd /tmp/ && git clone ${GITDIR} ${EXENAME})
+
+if [ -x "${CONFIG_DIR}/patch.sh" ]; then
+    PATCHFILE=`pwd`"/${CONFIG_DIR}/patch.sh"
+    echo "Running ${PATCHFILE} ..."
+    (cd ${SRCDIR} && ${PATCHFILE})
+fi
 
 docker container prune -f
 docker rmi ${ORGNAME}/${IMAGENAME}:${VERSION}

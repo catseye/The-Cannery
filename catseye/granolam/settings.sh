@@ -1,0 +1,4 @@
+ORGNAME=catseye
+SOURCE=GraNoLa-M
+EXENAME=granolam
+VERSION=1.0-2014.0819
