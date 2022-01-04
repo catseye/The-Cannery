@@ -1,0 +1,5 @@
+ORGNAME=catseye
+SOURCE=
+EXENAME=hastec
+IMAGENAME=x-hastec
+VERSION=0.5.5.1-ce1

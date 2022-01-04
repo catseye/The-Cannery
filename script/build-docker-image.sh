@@ -23,23 +23,33 @@ shelf_pwd() {
     return 1
 }
 
-if shelf_pwd ${SOURCE}; then
-  GITDIR=`shelf_pwd ${SOURCE}`
+if [ "x$SOURCE" != "x" ]; then
+  if shelf_pwd ${SOURCE}; then
+    GITDIR=`shelf_pwd ${SOURCE}`
+  else
+    echo "Please set SHELF_PATH to a directory where the source '${SOURCE}' can be found."
+    exit 1
+  fi
 else
-  echo "Please set SHELF_PATH to a directory where the source '${SOURCE}' can be found."
-  exit 1
+  GITDIR=""
 fi
 
 ORGNAME=catseye
 DOCKERFILE=$CONFIG_DIR/Dockerfile
-IMAGENAME=$EXENAME
+if [ "x$IMAGENAME" = "x" ]; then
+  IMAGENAME=$EXENAME
+fi
 
-SRCDIR=/tmp/$EXENAME
-
-echo "Cloning ${GITDIR} to ${SRCDIR} ..."
+SRCDIR=/tmp/$IMAGENAME
 
 rm -rf ${SRCDIR}
-(cd /tmp/ && git clone ${GITDIR} ${EXENAME})
+if [ "x$GITDIR" != "x" ]; then
+  echo "Cloning ${GITDIR} to ${SRCDIR} ..."
+  (cd /tmp/ && git clone ${GITDIR} ${IMAGENAME})
+else
+  echo "No SOURCE specified in settings.sh, using empty ${SRCDIR} ..."
+  mkdir -p $SRCDIR
+fi
 
 if [ -x "${CONFIG_DIR}/patch.sh" ]; then
     PATCHFILE=`pwd`"/${CONFIG_DIR}/patch.sh"
