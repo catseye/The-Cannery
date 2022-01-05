@@ -23,23 +23,38 @@ shelf_pwd() {
     return 1
 }
 
-if shelf_pwd ${SOURCE}; then
-  GITDIR=`shelf_pwd ${SOURCE}`
-else
-  echo "Please set SHELF_PATH to a directory where the source '${SOURCE}' can be found."
-  exit 1
-fi
-
 ORGNAME=catseye
 DOCKERFILE=$CONFIG_DIR/Dockerfile
-IMAGENAME=$EXENAME
+if [ "x$IMAGENAME" = "x" ]; then
+  IMAGENAME=$EXENAME
+fi
 
-SRCDIR=/tmp/$EXENAME
+if [ "x$SOURCE" != "x" ]; then
+  if [ "x$SHELF_PATH" != "x" ]; then
+    if shelf_pwd ${SOURCE}; then
+      GITDIR=`shelf_pwd ${SOURCE}`
+    else
+      echo "Please set SHELF_PATH to a directory where the source '${SOURCE}' can be found."
+      exit 1
+    fi
+  else
+    GITDIR="https://github.com/$ORGNAME/$SOURCE"
+  fi
+else
+  # If GITDIR is blank, this image does not require a repository when building
+  GITDIR=""
+fi
 
-echo "Cloning ${GITDIR} to ${SRCDIR} ..."
+SRCDIR=/tmp/$IMAGENAME
 
 rm -rf ${SRCDIR}
-(cd /tmp/ && git clone ${GITDIR} ${EXENAME})
+if [ "x$GITDIR" != "x" ]; then
+  echo "Cloning ${GITDIR} to ${SRCDIR} ..."
+  (cd /tmp/ && git clone ${GITDIR} ${IMAGENAME})
+else
+  echo "No SOURCE specified in settings.sh, using empty ${SRCDIR} ..."
+  mkdir -p $SRCDIR
+fi
 
 if [ -x "${CONFIG_DIR}/patch.sh" ]; then
     PATCHFILE=`pwd`"/${CONFIG_DIR}/patch.sh"
