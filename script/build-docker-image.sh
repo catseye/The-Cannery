@@ -29,8 +29,8 @@ if [ "x$IMAGENAME" = "x" ]; then
   IMAGENAME=$EXENAME
 fi
 
-if [ "x$SHELF_PATH" != "x" ]; then
-  if [ "x$SOURCE" != "x" ]; then
+if [ "x$SOURCE" != "x" ]; then
+  if [ "x$SHELF_PATH" != "x" ]; then
     if shelf_pwd ${SOURCE}; then
       GITDIR=`shelf_pwd ${SOURCE}`
     else
@@ -38,10 +38,11 @@ if [ "x$SHELF_PATH" != "x" ]; then
       exit 1
     fi
   else
-    GITDIR=""
+    GITDIR="https://github.com/$ORGNAME/$SOURCE"
   fi
 else
-  GITDIR="https://github.com/$ORGNAME/$SOURCE"
+  # If GITDIR is blank, this image does not require a repository when building
+  GITDIR=""
 fi
 
 SRCDIR=/tmp/$IMAGENAME
