@@ -50,7 +50,7 @@ SRCDIR=/tmp/$IMAGENAME
 rm -rf ${SRCDIR}
 if [ "x$GITDIR" != "x" ]; then
   echo "Cloning ${GITDIR} to ${SRCDIR} ..."
-  (cd /tmp/ && git clone ${GITDIR} ${IMAGENAME})
+  (cd /tmp/ && git clone ${GITDIR} ${IMAGENAME} && cd ${IMAGENAME} && git checkout ${VERSION})
 else
   echo "No SOURCE specified in settings.sh, using empty ${SRCDIR} ..."
   mkdir -p $SRCDIR

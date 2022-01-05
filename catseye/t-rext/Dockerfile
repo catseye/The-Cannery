@@ -1,4 +1,4 @@
-FROM bitnami/python:2.7.18-prod
+FROM python:3.5.7-slim-stretch
 RUN apt-get update && apt-get upgrade -y
 RUN mkdir /mnt/host
 WORKDIR /usr/src/app
