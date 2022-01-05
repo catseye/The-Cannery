@@ -23,21 +23,25 @@ shelf_pwd() {
     return 1
 }
 
-if [ "x$SOURCE" != "x" ]; then
-  if shelf_pwd ${SOURCE}; then
-    GITDIR=`shelf_pwd ${SOURCE}`
-  else
-    echo "Please set SHELF_PATH to a directory where the source '${SOURCE}' can be found."
-    exit 1
-  fi
-else
-  GITDIR=""
-fi
-
 ORGNAME=catseye
 DOCKERFILE=$CONFIG_DIR/Dockerfile
 if [ "x$IMAGENAME" = "x" ]; then
   IMAGENAME=$EXENAME
+fi
+
+if [ "x$SHELF_PATH" != "x" ]; then
+  if [ "x$SOURCE" != "x" ]; then
+    if shelf_pwd ${SOURCE}; then
+      GITDIR=`shelf_pwd ${SOURCE}`
+    else
+      echo "Please set SHELF_PATH to a directory where the source '${SOURCE}' can be found."
+      exit 1
+    fi
+  else
+    GITDIR=""
+  fi
+else
+  GITDIR="https://github.com/$ORGNAME/$SOURCE"
 fi
 
 SRCDIR=/tmp/$IMAGENAME
