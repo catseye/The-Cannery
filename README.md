@@ -46,6 +46,37 @@ this directive is not total; the Docker daemon still runs as root.
 For that reason I would recommend not running the driver scripts
 from a directory that contains anything important, such as `/`.
 
+Also, there are ways to make the Docker daemon run as non-root.
+But they are outside the scope of this document.
+
+### Containerization for Preservation
+
+Because the idea here is "containerization for preservation" rather
+than "containerization for deployment", we don't rebuild the images
+regularly.  Every time one of these images is rebuilt, it pulls
+the latest packages from the system package manager repository,
+which rebuilds that layer, which causes new layers to be built on
+top of it, bloating everything.  Since they are not used as servers,
+and because they are containerized, the need to update system packages
+regularly to fix critical (exploitable) defects is reduced.
+
+### Base Images
+
+#### Python 3.x
+
+For Python 3.x-based executables, the base image used is usually
+**python-3.5.7-slim-stretch**.
+
+#### Python 2.7.x
+
+For Python 2.7-based executables, the base image used is
+**bitnami/python:2.7.18-prod**.
+
+#### Erlang R16
+
+For Erlang R16-based executables, the base image used is
+**andreineculau/erlang-r16b03-1:latest**.
+
 [Cat's Eye Technologies]: https://catseye.tc/
 [Docker images available on Docker Hub]: https://hub.docker.com/u/catseye
 [containerized-hastec]: https://github.com/catseye/containerized-hastec/
