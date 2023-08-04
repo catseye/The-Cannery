@@ -1,4 +1,4 @@
-FROM python:3.5.7-slim-stretch
+FROM python:3.11-slim
 RUN apt-get update && apt-get upgrade -y
 RUN mkdir /mnt/host
 WORKDIR /usr/src/app
