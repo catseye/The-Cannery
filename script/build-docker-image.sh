@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 # Common script for building a Docker image.
 # Usage: build-docker-image.sh <dir-containing-docker-config>
@@ -50,7 +50,10 @@ SRCDIR=/tmp/$IMAGENAME
 rm -rf ${SRCDIR}
 if [ "x$GITDIR" != "x" ]; then
   echo "Cloning ${GITDIR} to ${SRCDIR} ..."
-  (cd /tmp/ && git clone ${GITDIR} ${IMAGENAME} && cd ${IMAGENAME} && git checkout ${VERSION})
+  if [ "x$BRANCH" = "x" ]; then
+    BRANCH=${VERSION}
+  fi
+  (cd /tmp/ && git clone ${GITDIR} ${IMAGENAME} && cd ${IMAGENAME} && git checkout ${BRANCH})
 else
   echo "No SOURCE specified in settings.sh, using empty ${SRCDIR} ..."
   mkdir -p $SRCDIR
@@ -63,8 +66,8 @@ if [ -x "${CONFIG_DIR}/patch.sh" ]; then
 fi
 
 docker container prune -f
-docker rmi ${ORGNAME}/${IMAGENAME}:${VERSION}
-docker rmi ${IMAGENAME}
+docker rmi ${ORGNAME}/${IMAGENAME}:${VERSION} || echo "No such image ${ORGNAME}/${IMAGENAME}:${VERSION}, skipping"
+docker rmi ${IMAGENAME} || echo "No such image ${IMAGENAME}, skipping"
 docker build -f ${DOCKERFILE} -t ${IMAGENAME} ${SRCDIR}
 docker tag ${IMAGENAME} ${ORGNAME}/${IMAGENAME}:${VERSION}
 docker images | grep ${IMAGENAME}
