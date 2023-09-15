@@ -1,16 +1,10 @@
 #!/bin/sh
 
-EXENAME=marysue
+EXENAME=the_swallows.py
 
 SCRIPTPATH=`realpath $0`
 SCRIPTDIR=`dirname $SCRIPTPATH`
 . $SCRIPTDIR/../catseye/$EXENAME/settings.sh
 IMAGE=$ORGNAME/$EXENAME:$VERSION
 
-# the actual exename
-EXENAME=MARYSUE
-# allow in some env vars
-if [ "x$SEEDBANK_SEED" != "x" ]; then
-  ENVPARAM="-e SEEDBANK_SEED=${SEEDBANK_SEED}"
-fi
 docker run --user $(id -u):$(id -g) -i -t $ENVPARAM -v "${PWD}:/mnt/host" $IMAGE $EXENAME "$@"
