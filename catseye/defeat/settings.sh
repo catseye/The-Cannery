@@ -1,0 +1,5 @@
+ORGNAME=catseye
+SOURCE=NaNoGenMo-Entries-2018
+EXENAME=defeat
+BRANCH=master
+VERSION=1.0
