@@ -1,0 +1,21 @@
+#!/bin/sh
+
+EXENAME=mzstorkipiwanbotbotbot
+
+SCRIPTPATH=`realpath $0`
+SCRIPTDIR=`dirname $SCRIPTPATH`
+. $SCRIPTDIR/../catseye/$EXENAME/settings.sh
+IMAGE=$ORGNAME/$EXENAME:$VERSION
+
+# allow in some env vars
+ENVPARAM=""
+if [ "x$BOTNAME" != "x" ]; then
+  ENVPARAM="$ENVPARAM -e BOTNAME=${BOTNAME}"
+fi
+if [ "x$BOTPASS" != "x" ]; then
+  ENVPARAM="$ENVPARAM -e BOTPASS=${BOTPASS}"
+fi
+if [ "x$CHANNEL" != "x" ]; then
+  ENVPARAM="$ENVPARAM -e CHANNEL=${CHANNEL}"
+fi
+docker run --user $(id -u):$(id -g) -i -t $ENVPARAM -v "${PWD}:/mnt/host" $IMAGE $EXENAME "$@"

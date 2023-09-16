@@ -1,0 +1,4 @@
+ORGNAME=catseye
+SOURCE=mzstorkipiwanbotbotbot
+EXENAME=mzstorkipiwanbotbotbot
+VERSION=0.1
