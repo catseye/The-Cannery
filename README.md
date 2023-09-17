@@ -2,8 +2,7 @@ The Cannery
 ===========
 
 Experimental
-| _See also:_ [The Platform](https://github.com/catseye/The-Platform)
-∘ [containerized-hastec](https://github.com/catseye/containerized-hastec)
+| _See also:_ [The Platform](https://git.catseye.tc/The-Platform)
 
 - - - -
 
@@ -65,7 +64,8 @@ regularly to fix critical (exploitable) defects is reduced.
 #### Python 3.x
 
 For Python 3.x-based executables, the base image used is usually
-**python-3.5.7-slim-stretch**.
+**python-3.5.7-slim-stretch**.  More recent images may be based on
+**python-3.11-slim**.
 
 #### Python 2.7.x
 
@@ -79,4 +79,3 @@ For Erlang R16-based executables, the base image used is
 
 [Cat's Eye Technologies]: https://catseye.tc/
 [Docker images available on Docker Hub]: https://hub.docker.com/u/catseye
-[containerized-hastec]: https://github.com/catseye/containerized-hastec/

@@ -38,7 +38,10 @@ if [ "x$SOURCE" != "x" ]; then
       exit 1
     fi
   else
-    GITDIR="https://github.com/$ORGNAME/$SOURCE"
+    if [ "x$GITDIR" = "x" ]; then
+      echo "Please point GITDIR to the source repo for ${ORGNAME}/${SOURCE}."
+      exit 1
+    fi
   fi
 else
   # If GITDIR is blank, this image does not require a repository when building
