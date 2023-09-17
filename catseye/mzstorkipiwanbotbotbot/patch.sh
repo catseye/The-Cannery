@@ -2,11 +2,8 @@
 
 cat >config.lua <<'EOF'
 BOTNAME = os.getenv("BOTNAME") or "funkybot"
-print(BOTNAME)
 PASSWORD = os.getenv("BOTPASS")
-print(PASSWORD)
 CHANNELS = {os.getenv("CHANNEL") or "#esolangs"}
-print(CHANNELS)
 EOF
 
 cat >mzstorkipiwanbotbotbot <<'EOF'

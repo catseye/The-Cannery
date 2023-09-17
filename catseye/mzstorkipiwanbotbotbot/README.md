@@ -1,10 +1,14 @@
-The image contains [mzstorkipiwanbotbotbot](https://catseye.tc/node/mzstorkipiwanbotbotbot) its strict dependencies (Lua 5.1) and tools that allow it to be actually used as an IRC bot (`ncat`, `gnutls-cli`, and `socat`).
+The image contains [mzstorkipiwanbotbotbot](https://catseye.tc/node/mzstorkipiwanbotbotbot) its strict dependencies (Lua 5.1) and tools that allow it to be actually used as a bot on the `ircs` protocol (`gnutls-cli` and `socat`).
 
 Example of use:
 
     docker pull catseye/mzstorkipiwanbotbotbot:0.1
-    docker run --user $(id -u):$(id -g) -i -t -v "${PWD}:/mnt/host" catseye/mzstorkipiwanbotbotbot:0.1 \
-        irc.libera.chat 6697 mybotname
+    docker run --user $(id -u):$(id -g) -i -t -v "${PWD}:/mnt/host" \
+        -e BOTNAME=mybotname -e CHANNEL='#mychannel' \
+        catseye/mzstorkipiwanbotbotbot:0.1 \
+        irc.libera.chat 6697
+
+(Or, for simpler more convenient usage, use the `mzstorkipiwanbotbotbot` script in [The Cannery](https://git.catseye.tc/The-Cannery/).)
 
 This Docker image is fairly experimental. Please don't lean on it too heavily.
 
